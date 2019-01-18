@@ -1,0 +1,37 @@
+Explanation:
+1. Concat1 : In this method, we pass a string “Geeks” and perform “s1 = s1 + ”forgeeks”. 
+The string passed from main() is not changed, this is due to the fact that String is immutable.
+ Altering the value of string creates another object and s1 in concat1() stores reference of new string.
+  References s1 in main() and cocat1() refer to different strings.
+
+2. Concat2 : In this method, we pass a string “Geeks” and perform “s2.append(“forgeeks”)” which changes 
+the actual value of the string (in main) to “Geeksforgeeks”. This is due to the simple fact that StringBuilder 
+is mutable and hence changes its value.
+
+2. Concat3 : StringBuffer is similar to StringBuilder except one difference that StringBuffer is
+ thread safe, i.e., multiple threads can use it without any issue. The thread safety brings a penalty of performance.
+When to use which one :
+
+If a string is going to remain constant throughout the program, then use String class object because
+ a String object is immutable.
+If a string can change (example: lots of logic and operations in the construction of the string)
+ and will only be accessed from a single thread, using a StringBuilder is good enough.
+If a string can change, and will be accessed from multiple threads, use a StringBuffer 
+because StringBuffer is synchronous so you have thread-safety.
+Conversion between types of strings in Java
+
+Sometimes there is a need of converting a string object of different classes like String,
+ StringBuffer, StringBuilder to one-another. Below are some techniques to do the same.
+
+From String to StringBuffer and StringBuilder : This one is easy. 
+We can directly pass String class object to StringBuffer and StringBuilder class constructors. 
+As String class is immutable in java, so for editing a string, we can perform same by converting it
+ to StringBuffer or StringBuilder class objects. Below is the java program to demonstrate the same.
+ 
+ 
+ Conclusion:
+
+Objects of String are immutable, and objects of StringBuffer and StringBuilder are mutable.
+StringBuffer and StringBuilder are similar, but StringBuilder is faster and preferred over
+ StringBuffer for single threaded program.
+ If thread safety is needed, then StringBuffer is used.
